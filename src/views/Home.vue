@@ -1,32 +1,49 @@
 <template>
   <div id="home">
-    <div class="lista-filmes">
-      <article class="filme" v-for="filme in filmes" :key="filme.id">
+
+    <div class="lista-filmes" v-if="loading" >
+      <Loading/>
+    </div>
+    <div class="lista-filmes" v-else>
+      <div v-for="filme in filmes" :key="filme.id">
+        <router-link :to="`/filme/${filme.id}`">
+      <article class="filme">
         <strong>{{ filme.nome }}</strong>
         <img :src="filme.foto" :alt="filme.nome" />
-        <router-link :to="`/filme/${filme.id}`">Acessar</router-link>
+        <div class="btn-acessar">Acessar</div>
       </article>
+      </router-link>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import api from "@/service/api";
+import Loading from "@/components/Loading.vue"
 
 export default {
+  components: { Loading },
   data() {
     return {
       filmes: [],
+      loading: true
     };
   },
   async created() {
     const response = await api.get("?api=filmes");
     this.filmes = response.data;
+    this.loading = false;
   },
 };
 </script>
 
 <style scoped>
+
+a {
+  text-decoration: none;
+}
+
 #home {
   display: flex;
   flex-direction: column;
@@ -49,13 +66,14 @@ export default {
   align-items: center;
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 20px 20px -20px;
   transition: all .2s;
   margin: 20px;
 }
 
 .lista-filmes article:hover {
   transform: scale(1.05);
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 30px 20px -20px;
 }
 
 .lista-filmes strong {
@@ -65,6 +83,8 @@ export default {
   align-items: center;
   width: 100%;
   height: 50px;
+  color: brown;
+  text-decoration: none;
 }
 
 img {
@@ -72,7 +92,7 @@ img {
   max-width: 330px;
 }
 
-.lista-filmes article a {
+.lista-filmes article .btn-acessar {
   text-decoration: none;
   color: #fff;
   font-size: 18px;
@@ -88,7 +108,7 @@ img {
   justify-content: center;
 }
 
-.lista-filmes article a:hover {
+.lista-filmes article:hover .btn-acessar {
   background-color:rgb(224, 59, 59) ;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div id="erro">
-    <h1>Erro</h1>
+    <h1>Ops...Parece que essa página não existe :(</h1>
   </div>
 </template>
 
