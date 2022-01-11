@@ -32,11 +32,11 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  width: 100%px;
+  margin: 0 20px;
 }
 
 .lista-filmes {
-  margin-top: 20px;
+  margin: 30px 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -48,10 +48,10 @@ export default {
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  margin: 15px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
   transition: all .2s;
+  margin: 20px;
 }
 
 .lista-filmes article:hover {
@@ -69,7 +69,7 @@ export default {
 
 img {
   max-height: 500px;
-  width: 400px;
+  max-width: 330px;
 }
 
 .lista-filmes article a {
@@ -78,7 +78,7 @@ img {
   font-size: 18px;
   background-color: brown;
   width: 100%;
-  height: 40px;
+  height: 35px;
   margin-top: -25px;
   text-align: center;
   border-bottom-left-radius: 10px;
