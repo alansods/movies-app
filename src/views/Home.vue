@@ -56,11 +56,10 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  margin: 0 20px;
+  margin-top: 60px;
 }
 
 .lista-filmes {
-  margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -90,7 +89,7 @@ h1 {
   align-items: center;
   width: 100%;
   height: 50px;
-  color: brown;
+  color: var(--text-color);
   text-decoration: none;
 }
 
@@ -103,7 +102,7 @@ img {
   text-decoration: none;
   color: #fff;
   font-size: 18px;
-  background-color: brown;
+  background-color: var(--main-color);
   width: 100%;
   height: 35px;
   margin-top: -25px;
@@ -116,6 +115,6 @@ img {
 }
 
 .lista-filmes article:hover .btn-acessar {
-  background-color: rgb(224, 59, 59);
+  background-color: var(--main-color-hover);
 }
 </style>

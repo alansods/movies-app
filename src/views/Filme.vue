@@ -15,7 +15,7 @@
           <router-link tag="button" to="/" class="voltar"><i class="fas fa-caret-left"></i>Voltar</router-link>
           <div class="container-butons">
             <button class="btn-favoritar"><i class="fas fa-star"></i>Favoritar</button>
-            <button class="btn-trailer"><i class="fas fa-video"></i>Trailer</button>
+            <button class="btn-trailer"><a :href="`https://www.youtube.com/results?search_query=${filme.nome}+trailer`" target="_blank"><i class="fas fa-video"></i>Trailer</a></button>
           </div>
         </div>
       </div>
@@ -45,6 +45,11 @@ export default {
 </script>
 
 <style scoped>
+
+#filme {
+  margin-top: 60px;
+}
+
 h1 {
   text-align: center;
 }
@@ -52,7 +57,7 @@ h1 {
 h2 {
   color: #fff;
   margin-bottom: 0px;
-  background: brown;
+  background: var(--main-color);
   padding: 18px 30px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -70,7 +75,6 @@ i {
 
 .container {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   max-width: 750px;
 }
@@ -104,6 +108,7 @@ i {
 .voltar {
   display: flex;
   align-items: center;
+  margin-right: 15px;
 }
 
 .voltar i {
@@ -120,26 +125,25 @@ button {
   transition: all 0.2s ease;
   outline: none;
   user-select: none;
+  color: var(--text-color);
 }
 
 button:hover {
-  background: brown;
+  background: var(--main-color);
+  color: #fff;
+  transform: scale(1.05);
+
+}
+
+button:hover a{
   color: #fff;
 }
 
 a {
   text-decoration: none;
-  color: #000;
+  color: var(--text-color);
   transition: all 0.5s;
   user-select: none;
-}
-
-a:hover {
-  color: #fff;
-}
-
-button:hover {
-  transform: scale(1.05);
 }
 
 button:active {

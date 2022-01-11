@@ -21,7 +21,12 @@ export default {
   justify-content: space-between;
   width: 100%;
   height: 60px;
-  background: brown;
+  background: var(--main-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
 }
 
 #header a {
@@ -44,7 +49,7 @@ button {
   padding: 10px 15px;
   border-radius: 3px;
   text-transform: uppercase;
-  color: brown;
+  color: var(--main-color);
   transition: all 0.2s ease;
   margin-right: 30px;
   user-select: none;

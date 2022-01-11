@@ -18,17 +18,25 @@ export default {
 </script>
 
 <style>
+
+:root {
+  --main-color: brown;
+  --main-color-hover: rgb(224, 59, 59);
+  --text-color: rgb(17, 19, 37);
+  
+}
+
 #app {
   display: flex;
   width: 100%;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   margin-bottom: 70px;
+  color: var(--text-color);
 }
 
 .container {
-  margin: 0 15px;
+  margin: 0 5px;
 }
 
 /* TRANSITIONS */
