@@ -2,11 +2,11 @@
   <div id="meus-filmes">
     <h1>Favoritos</h1>
     <transition mode="out-in">
-    <span v-show="filmes.length <= 0">Você não possui nenhum filme favoritado.</span
+    <span v-if="filmes.length <= 0">Você não possui nenhum filme favoritado.</span
     >
     </transition>
 
-    <ul v-show="filmes.length > 0">
+    <ul v-if="filmes.length > 0">
       <li v-for="filme in filmes" :key="filme.id">
         <span><i class="fas fa-star"></i>{{ filme.nome }}</span>
         <div>
