@@ -1,15 +1,148 @@
 <template>
   <div id="filme">
-    <h1>Filme</h1>
+    <div class="lista-filmes" v-show="loading">
+      <Loading />
+    </div>
+
+    <transition mode="out-in">
+      <div class="container" v-show="!loading">
+        <h1>Filme</h1>
+        <h2>{{ filme.nome }}</h2>
+        <img :src="filme.foto" alt="filme.nome" />
+        <h3>Sinopse</h3>
+        <p>{{ filme.sinopse }}</p>
+        <div class="botoes">
+          <router-link tag="button" to="/" class="voltar"><i class="fas fa-caret-left"></i>Voltar</router-link>
+          <div class="container-butons">
+            <button class="btn-favoritar"><i class="fas fa-star"></i>Favoritar</button>
+            <button class="btn-trailer"><i class="fas fa-video"></i>Trailer</button>
+          </div>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
-export default {
+import api from "@/service/api";
+import Loading from "@/components/Loading.vue";
 
-}
+export default {
+  props: ["id"],
+  components: { Loading },
+  data() {
+    return {
+      filme: {},
+      loading: true,
+    };
+  },
+  async created() {
+    const response = await api.get(`?api=filmes/${this.id}`);
+    this.filme = response.data;
+    this.loading = false;
+  },
+};
 </script>
 
-<style>
+<style scoped>
+h1 {
+  text-align: center;
+}
 
+h2 {
+  color: #fff;
+  margin-bottom: 0px;
+  background: brown;
+  padding: 18px 30px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+h3 {
+  font-size: 22px;
+  margin-bottom: 0;
+}
+
+i {
+  margin-right: 7px;
+  font-size: 16px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 750px;
+}
+
+.container img {
+  width: 100%;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.botoes {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-butons {
+  display: flex;
+}
+
+.btn-favoritar {
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.btn-trailer {
+  display: flex;
+  align-items: center;
+}
+
+.voltar {
+  display: flex;
+  align-items: center;
+}
+
+.voltar i {
+  font-size: 28px;
+}
+
+button {
+  border-radius: 5px;
+  margin-top: 50px;
+  cursor: pointer;
+  border: 0;
+  padding: 12px;
+  font-size: 20px;
+  transition: all 0.2s ease;
+  outline: none;
+  user-select: none;
+}
+
+button:hover {
+  background: brown;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  transition: all 0.5s;
+  user-select: none;
+}
+
+a:hover {
+  color: #fff;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+}
 </style>

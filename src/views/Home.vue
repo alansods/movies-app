@@ -60,7 +60,7 @@ h1 {
 }
 
 .lista-filmes {
-  margin: 30px 0;
+  margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -74,7 +74,7 @@ h1 {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 20px 20px -20px;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   margin: 20px;
 }
 

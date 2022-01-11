@@ -29,9 +29,10 @@ export default {
   font-size: 28px;
   cursor: pointer;
   color: #fff;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   margin-left: 30px;
   text-align: center;
+  user-select: none;
 }
 
 button {
@@ -44,8 +45,9 @@ button {
   border-radius: 3px;
   text-transform: uppercase;
   color: brown;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   margin-right: 30px;
+  user-select: none;
 }
 
 button:hover {
@@ -57,7 +59,7 @@ button:active, a:active {
 }
 
 a:active {
-  transform: scale(0.9);
+  transform: scale(0.85);
 }
 
 

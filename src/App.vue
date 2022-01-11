@@ -2,7 +2,9 @@
   <div id="app">
     <Header />
     <transition mode="out-in">
-      <router-view />
+      <div class="container">
+        <router-view />
+      </div>
     </transition>
   </div>
 </template>
@@ -22,6 +24,11 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 70px;
+}
+
+.container {
+  margin: 0 15px;
 }
 
 /* TRANSITIONS */
