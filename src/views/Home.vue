@@ -1,33 +1,34 @@
 <template>
   <div id="home">
-
-    <div class="lista-filmes" v-if="loading" >
-      <Loading/>
+    <div class="lista-filmes" v-show="loading">
+      <Loading />
     </div>
-    <div class="lista-filmes" v-else>
+    <transition mode="out-in">
+    <div class="lista-filmes" v-show="!loading">
       <div v-for="filme in filmes" :key="filme.id">
         <router-link :to="`/filme/${filme.id}`">
-      <article class="filme">
-        <strong>{{ filme.nome }}</strong>
-        <img :src="filme.foto" :alt="filme.nome" />
-        <div class="btn-acessar">Acessar</div>
-      </article>
-      </router-link>
+          <article class="filme">
+            <strong>{{ filme.nome }}</strong>
+            <img :src="filme.foto" :alt="filme.nome" />
+            <div class="btn-acessar">Acessar</div>
+          </article>
+        </router-link>
       </div>
     </div>
+    </transition>
   </div>
 </template>
 
 <script>
 import api from "@/service/api";
-import Loading from "@/components/Loading.vue"
+import Loading from "@/components/Loading.vue";
 
 export default {
   components: { Loading },
   data() {
     return {
       filmes: [],
-      loading: true
+      loading: true,
     };
   },
   async created() {
@@ -39,7 +40,6 @@ export default {
 </script>
 
 <style scoped>
-
 a {
   text-decoration: none;
 }
@@ -67,7 +67,7 @@ a {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 20px 20px -20px;
-  transition: all .2s;
+  transition: all 0.2s;
   margin: 20px;
 }
 
@@ -109,6 +109,6 @@ img {
 }
 
 .lista-filmes article:hover .btn-acessar {
-  background-color:rgb(224, 59, 59) ;
+  background-color: rgb(224, 59, 59);
 }
 </style>
