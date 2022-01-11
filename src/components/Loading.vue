@@ -34,7 +34,7 @@ export default {};
   border-radius: 10px;
   background: brown;
   margin: 4px;
-  animation: dots 0.2s cubic-bezier(0.6, 0.1, 1, 0.4) infinite alternate;
+  animation: dots 0.25s cubic-bezier(0.6, 0.1, 1, 0.4) infinite alternate;
 }
 
 .loading span:nth-child(1) {

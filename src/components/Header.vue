@@ -1,8 +1,8 @@
 <template>
   <header id="header">
 
-    <router-link to="/" exact>Home</router-link>
-    <router-link to="/salvos" exact tag="button" class="meus-filmes">Salvos</router-link>
+    <router-link to="/" exact><i class="fas fa-home"></i></router-link>
+    <router-link to="/salvos" exact tag="button" class="meus-filmes">Meus Filmes</router-link>
 
   </header>
 </template>
@@ -18,7 +18,7 @@ export default {
 #header {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
   height: 60px;
   background: brown;
@@ -26,9 +26,12 @@ export default {
 
 #header a {
   text-decoration: none;
-  font-size: 30px;
+  font-size: 28px;
   cursor: pointer;
   color: #fff;
+  transition: all 0.2s;
+  margin-left: 30px;
+  text-align: center;
 }
 
 button {
@@ -37,9 +40,26 @@ button {
   outline: none;
   background: #fff;
   font-weight: bold;
-  padding: 5px 15px;
-  border-radius: 5px;
+  padding: 10px 15px;
+  border-radius: 3px;
   text-transform: uppercase;
+  color: brown;
+  transition: all 0.2s;
+  margin-right: 30px;
 }
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button:active, a:active {
+  transform: scale(0.95);
+}
+
+a:active {
+  transform: scale(0.9);
+}
+
+
 
 </style>

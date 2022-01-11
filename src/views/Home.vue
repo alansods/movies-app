@@ -4,17 +4,20 @@
       <Loading />
     </div>
     <transition mode="out-in">
-    <div class="lista-filmes" v-show="!loading">
-      <div v-for="filme in filmes" :key="filme.id">
-        <router-link :to="`/filme/${filme.id}`">
-          <article class="filme">
-            <strong>{{ filme.nome }}</strong>
-            <img :src="filme.foto" :alt="filme.nome" />
-            <div class="btn-acessar">Acessar</div>
-          </article>
-        </router-link>
+      <div v-show="!loading">
+        <h1>Lista de Filmes</h1>
+        <div class="lista-filmes">
+          <div v-for="filme in filmes" :key="filme.id">
+            <router-link :to="`/filme/${filme.id}`">
+              <article class="filme">
+                <strong>{{ filme.nome }}</strong>
+                <img :src="filme.foto" :alt="filme.nome" />
+                <div class="btn-acessar">Acessar</div>
+              </article>
+            </router-link>
+          </div>
+        </div>
       </div>
-    </div>
     </transition>
   </div>
 </template>
@@ -42,6 +45,10 @@ export default {
 <style scoped>
 a {
   text-decoration: none;
+}
+
+h1 {
+  text-align: center;
 }
 
 #home {
