@@ -1,10 +1,9 @@
 <template>
   <div id="filme">
-    <div class="lista-filmes" v-show="loading">
+    <div class="loading" v-show="loading">
       <Loading />
     </div>
 
-    <transition mode="out-in">
       <div class="container" v-show="!loading">
         <h1>Filme</h1>
         <h2>{{ filme.nome }}</h2>
@@ -14,12 +13,11 @@
         <div class="botoes">
           <router-link tag="button" to="/" class="voltar"><i class="fas fa-caret-left"></i>Voltar</router-link>
           <div class="container-butons">
-            <button class="btn-favoritar"><i class="fas fa-star"></i>Favoritar</button>
+            <button class="btn-favoritar" @click="salvarFilme"><i class="fas fa-star"></i>Favoritar</button>
             <button class="btn-trailer"><a :href="`https://www.youtube.com/results?search_query=${filme.nome}+trailer`" target="_blank"><i class="fas fa-video"></i>Trailer</a></button>
           </div>
         </div>
       </div>
-    </transition>
   </div>
 </template>
 
@@ -36,6 +34,22 @@ export default {
       loading: true,
     };
   },
+  methods: {
+    salvarFilme() {
+      const minhaLista = localStorage.getItem('favoritos');
+      let filmes = JSON.parse(minhaLista) || [];
+
+      //Se o filme clicado já estiver favoritado retorna true
+      const hasFilme = filmes.some((filme) => filme.id === this.filme.id)
+      if(hasFilme) {
+        alert("Este filme já está na sua lista de favoritos!")
+        return
+      }
+
+      filmes.push(this.filme);
+      localStorage.setItem('favoritos', JSON.stringify(filmes));
+    }
+  },
   async created() {
     const response = await api.get(`?api=filmes/${this.id}`);
     this.filme = response.data;
@@ -45,6 +59,12 @@ export default {
 </script>
 
 <style scoped>
+
+.loading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
 #filme {
   margin-top: 60px;

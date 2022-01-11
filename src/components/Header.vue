@@ -2,7 +2,7 @@
   <header id="header">
 
     <router-link to="/" exact><i class="fas fa-home"></i></router-link>
-    <router-link to="/salvos" exact tag="button" class="meus-filmes">Meus Filmes</router-link>
+    <router-link to="/favoritos" exact tag="button" class="meus-filmes">Favoritos</router-link>
 
   </header>
 </template>

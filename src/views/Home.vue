@@ -1,9 +1,8 @@
 <template>
   <div id="home">
-    <div class="lista-filmes" v-show="loading">
+    <div class="loading" v-show="loading">
       <Loading />
     </div>
-    <transition mode="out-in">
       <div v-show="!loading">
         <h1>Lista de Filmes</h1>
         <div class="lista-filmes">
@@ -18,7 +17,6 @@
           </div>
         </div>
       </div>
-    </transition>
   </div>
 </template>
 
@@ -57,6 +55,12 @@ h1 {
   align-items: center;
   justify-content: space-around;
   margin-top: 60px;
+}
+
+.loading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .lista-filmes {

@@ -1,11 +1,12 @@
 <template>
   <div id="app">
     <Header />
-    <transition mode="out-in">
-      <div class="container">
+
+    <div class="container">
+      <transition mode="out-in">
         <router-view />
-      </div>
-    </transition>
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -18,12 +19,10 @@ export default {
 </script>
 
 <style>
-
 :root {
   --main-color: brown;
   --main-color-hover: rgb(224, 59, 59);
   --text-color: rgb(17, 19, 37);
-  
 }
 
 #app {

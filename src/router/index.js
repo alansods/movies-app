@@ -18,7 +18,7 @@ const routes = [
     props: true
   },
   {
-    path: "/salvos",
+    path: "/favoritos",
     component: MeusFilmes,
   },
   {
